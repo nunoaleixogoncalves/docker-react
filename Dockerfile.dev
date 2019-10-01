@@ -1,0 +1,13 @@
+# use an existing docker image as a base
+# FROM node:6.14 ou node:alpine versao especifica por tag (alpine version of a image is the simplest version of the image)
+FROM node:alpine
+#faz como referencia a pasta de trabalho por exemplo para o copy
+WORKDIR /app
+#copy package.json in directory to the docker container
+COPY package.json .
+# download and install a dependency
+RUN npm install
+#copy all in directory to the docker container (dois copy devido a qualquer alteracao nao ter que instalar npm visto a mudanças nos ficheiros) probably not needed using docker compose
+COPY . .
+# what to do when starts as container
+CMD ["npm", "run", "start"]
