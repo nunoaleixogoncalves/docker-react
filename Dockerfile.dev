@@ -2,7 +2,7 @@
 # FROM node:6.14 ou node:alpine versao especifica por tag (alpine version of a image is the simplest version of the image)
 FROM node:alpine
 #faz como referencia a pasta de trabalho por exemplo para o copy
-WORKDIR /app
+WORKDIR '/app'
 #copy package.json in directory to the docker container
 COPY package.json .
 # download and install a dependency
